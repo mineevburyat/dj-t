@@ -1,0 +1,17 @@
+{% load blog_tags %}               
+            <div class="card mb-4">
+                <div class="card-header">Категории</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="list-group list-group-flush">
+                            {% category_list as list %}
+                            {% for category_n in list %}
+                            <a href="{{category_n.get_absolute_url}}" type="button" class="list-group-item list-group-item-action
+                            {% if category_n == category %} active {% endif %}">
+                              {{category_n.title}}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>

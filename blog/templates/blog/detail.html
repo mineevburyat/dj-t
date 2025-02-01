@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Blog entries-->
+        <div class="col-lg-8">
+            <h2>{{post.title}}</h2>
+            {{post.content | safe}}
+        </div>
+        <!-- Side widgets-->
+        <div class="col-lg-4">
+            <!-- Search widget-->
+            <div class="card mb-4">
+                <div class="card-header">Поиск</div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Введите поисковую фразу" aria-label="Enter search term..." aria-describedby="button-search" />
+                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Categories widget-->
+            {% block category_list %}
+            {% include 'blog/components/category_list.html'%}
+            {% endblock %}
+            
+            <!-- Side widget-->
+            <div class="card mb-4">
+                <div class="card-header">Цитата дня</div>
+                <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

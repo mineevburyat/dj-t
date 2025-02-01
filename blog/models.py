@@ -7,6 +7,7 @@ from django.db import models
 # from markdownx.models import MarkdownxField
 from tinymce.models import HTMLField
 from filebrowser.fields import FileBrowseField
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -18,6 +19,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse('blog:filtered_posts', kwargs={'pk': self.pk})
 
 class Post(models.Model):
     title = models.CharField(verbose_name='Название',
@@ -47,3 +51,5 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title} ({self.category})"
     
+    def get_absolute_url(self):
+        return reverse('blog:detail_post', kwargs={'pk': self.pk})

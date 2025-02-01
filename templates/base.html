@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+    {% include 'components/head.html' %}
+    <body>
+        {% include 'components/header.html' %}
+        <!-- Page header with logo and tagline-->
+         {% block slider %}
+         {% include 'components/slider.html'%}
+         {% endblock %}
+        
+        <!-- Page content-->
+        {% block content %}
+        {% endblock %}
+        <!-- Footer-->
+        {% include 'components/footer.html' %}
+    </body>
+</html>
