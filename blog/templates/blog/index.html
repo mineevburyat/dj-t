@@ -15,8 +15,10 @@
                     <!-- Blog post-->
                      {% for post in posts %}
                     <div class="col">
-                        <div class="card mb-2">
-                            <a href="{{post.get_absolute_url}}"><img class="card-img-top" 
+                        <div class="card mb-2" >
+                            <a href="{{post.get_absolute_url}}">
+                                <img class="card-img-top img-fluid" 
+                                style="height: 12rem; object-fit: cover;"
                                 src="{% if post.image %} {{post.image.url}}
                                 {% else %} 
                                     {% static 'img/holder.png' %}
