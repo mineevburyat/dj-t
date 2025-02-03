@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'tinymce',
     'blog.apps.BlogConfig',
     'pools',
+    'userauth',
 ]
 
 MIDDLEWARE = [

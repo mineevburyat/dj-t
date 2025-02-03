@@ -7,8 +7,17 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'blog:index'%}">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'pools:index' %}">Опрос</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">Контакты</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">Вход</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">{{ user.username }}</li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'user:logout' %}">Выход</a></li>
+                {% if user.is_staff %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">Админка</a></li>
+                {% endif %}
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="#!">Регистрация</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'user:login' %}">Вход</a></li>
+                {% endif %}
+                
             </ul>
         </div>
     </div>
