@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block slider %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="post">{% csrf_token %}
+        <p>Вы уверены что хотите удалить "{{ object.title }}"?</p>
+        <p> тут можно сделать формочку типа с галочкой или капчой</p>
+        ну и конечно проверит авторизацию
+        {{ form }}
+        <input type="submit" value="Подтверждаю">
+    </form>
+</form>
+</div>
+{% endblock %}

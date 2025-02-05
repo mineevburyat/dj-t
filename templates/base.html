@@ -4,7 +4,13 @@
     <body>
         {% include 'components/header.html' %}
         <!-- Page header with logo and tagline-->
-         {% block slider %}
+        {% for message in messages %}
+        <div class="alert 
+        alert-{% if message.tags == 'error' %}danger{% else %}{{message.tags}}{% endif %}" role="alert">
+                {{ message }}
+        </div>    
+        {% endfor %}
+        {% block slider %}
          {% include 'components/slider.html'%}
          {% endblock %}
         

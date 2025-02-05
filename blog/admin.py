@@ -12,10 +12,11 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(MarkdownxModelAdmin):
-    list_display = ('title', 'created', 'updated', 'watched', 'category', 'published')
+    list_display = ('id', 'title', 'created', 'updated', 'watched', 'category', 'published')
     list_editable = ('published',)
     list_filter = ('category', 'published')
     readonly_fields = ('watched',)
+    list_display_links = ('title', )
     formfield_overrides = {
   models.TextField: {'widget': TinyMCE()}
   }

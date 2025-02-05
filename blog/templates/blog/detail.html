@@ -2,17 +2,31 @@
 
 {% load static %}
 
+{% block slider %}
+
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <div class="row">
         <!-- Blog entries-->
+        
         <div class="col-lg-8">
             <h2>{{post.title}}</h2>
             {{post.content | safe}}
         </div>
         <!-- Side widgets-->
+        
         <div class="col-lg-4">
             <!-- Search widget-->
+            <div class="card mb-4">
+                {% if user.is_staff %}
+                <a role="button" href="{% url 'blog:add_post' %}" class="btn btn-secondary">Добавить статью</a>
+                <a role="button" href="{% url 'blog:update_post' post.pk %}" class="btn btn-secondary">Редактировать статью</a>
+                <a role="button" href="{% url 'blog:delete_post' post.pk %}" class="btn btn-secondary">Удалить статью</a>
+                {% endif %}
+                <a role="button" href="{% url 'blog:index' %}" class="btn btn-secondary">Назад</a>
+            </div> 
             <div class="card mb-4">
                 <div class="card-header">Поиск</div>
                 <div class="card-body">

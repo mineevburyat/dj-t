@@ -22,6 +22,9 @@ class Category(models.Model):
     
     def get_absolute_url(self):
         return reverse('blog:filtered_posts', kwargs={'pk': self.pk})
+    
+    def get_choise_tupl(self):
+        pass
 
 class Post(models.Model):
     title = models.CharField(verbose_name='Название',
